@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { fetchPhotos, fetchVideos } from '../server/mediaApi';
 import {useDispatch, useSelector} from 'react-redux'; 
 
 
 const ResultGrid = () => {
-    const {query, activeTab, results, loading, error } = useSelector((store) => store.search)
-
+    const {query, activeTab, results, loading, error } = useSelector((state)=> state.search)
 
    useEffect(function(){
-
        const getData = async () =>  {
         let data ; 
         if(activeTab == 'photos') {
-            const data = await fetchPhotos(query); 
+            const response = await fetchPhotos(query); 
+            console.log(response.data)
         }
             if(activeTab == 'videos') {
-            const data = await fetchVideos(query); 
+            const response = await fetchVideos(query); 
+            console.log(response.data); 
         }
-        
         console.log(data); 
    }
     getData()
-   }, [query,activeTab])
-
-
+   }, [query,activeTab]); 
 
 
   return (
