@@ -1,15 +1,14 @@
 import  { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setQuery } from '../redux/features/searchSlice'
+import { fetchPhotos } from '../server/mediaApi';
 
 export const SearchBar = () => {
   const [text, setText] = useState(''); 
   const dispatch = useDispatch();
 
-
   const submitHandler = (e) => {
     e.preventDefault(); 
-    console.log(text);
       dispatch(setQuery(text));
     setText('');
   };
@@ -17,7 +16,6 @@ export const SearchBar = () => {
   return (
     <div className='mt-10 flex justify-center w-full'>
         <div className='shadow-white-100'>
-
           <div className=' min-w-3xl'>
            <form  className='p-2 text-xl  bg-[#0000005b] text-black rounded-2xl items-center text-center'
       onSubmit={(e)=> {
@@ -50,9 +48,7 @@ export const SearchBar = () => {
             ">
               Search
             </button>
-
            </div>
-        
       </form>
       </div>
     </div>

@@ -27,7 +27,6 @@ const searchSlice = createSlice({
         setResults(state, action){
             state.results = action.payload
             state.loading = false
-
         }, 
         setError(state, action){
             state.error = action.payload 

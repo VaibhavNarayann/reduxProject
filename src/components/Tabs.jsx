@@ -5,7 +5,7 @@ const Tabs = () => {
     const tabs = ['photos', 'videos']
 
     const dispatch = useDispatch(); 
-
+    
     const activeTab = useSelector((state)=>state.search.activeTab); 
 
     return (
