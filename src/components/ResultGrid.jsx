@@ -13,7 +13,7 @@ import { ResultCard } from './ResultCard';
 
        const getData = async () =>  {
         try { 
-            dispatch(setLoading())
+            dispatch(setLoading()); 
         let data = [] ; 
         if(activeTab == 'photos') {
          let  response = await fetchPhotos(query); 
@@ -23,7 +23,7 @@ import { ResultCard } from './ResultCard';
             title: item.alt_description, 
             thumbnail: item.urls.small, 
             src:  item.urls.full, 
-            // url: item.links.html
+            url: item.links.html
          }))
         }
             if(activeTab == 'videos') {
@@ -50,21 +50,18 @@ import { ResultCard } from './ResultCard';
    if(error) return <h1>Error</h1>
    if(loading) return <h1>Loading...</h1> 
 
-   
-  return (
-    <div className='flex justify-center mt-10 p-12 py-3 flex-wrap gap-5 overflow-auto shadow-white   px-10'>
-      
-            {results.map((item, idx)=>{
-                return <div className='  p-2' key={idx}> 
-                    <ResultCard item={item}/>
-                    
-                   
-                 </div>
-            })}
-    
-   
-    </div>          
-  )
+
+ return (
+  <div className="flex justify-center mt-10">
+    <div className="grid grid-cols-5 gap-0">
+      {results.map((item, idx) => (
+        <div key={idx} className="p-0 m-0">
+          <ResultCard item={item} />
+        </div>
+      ))}
+    </div>
+  </div>
+);
 }
 
 
