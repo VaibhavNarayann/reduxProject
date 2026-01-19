@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { fetchPhotos, fetchVideos } from '../server/mediaApi';
 import {useDispatch, useSelector} from 'react-redux'; 
-import { setLoading, setResults } from '../redux/features/searchSlice';
+import { setError, setLoading, setResults } from '../redux/features/searchSlice';
 import { ResultCard } from './ResultCard';
 
  const ResultGrid = () => {
@@ -41,7 +41,7 @@ import { ResultCard } from './ResultCard';
         dispatch(setResults(data));
 
         } catch (err) {
-            dispatch(setError(err.message)); 
+            dispatch(setError(err)); 
         }
    }  
     getData(); 
@@ -53,9 +53,9 @@ import { ResultCard } from './ResultCard';
 
  return (
   <div className="flex justify-center mt-10">
-    <div className="grid grid-cols-5 gap-0">
+    <div className="grid grid-cols-3  gap-0">
       {results.map((item, idx) => (
-        <div key={idx} className="p-0 m-0">
+        <div key={idx} className="rounded-sm border bg-white  m-0">
           <ResultCard item={item} />
         </div>
       ))}

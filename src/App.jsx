@@ -1,16 +1,17 @@
 import { SearchBar } from './components/SearchBar';
 import  Tabs  from './components/Tabs';
 import ResultGrid from './components/ResultGrid';
+import { NavBar } from './components/NavBar';
 
 
  const App = () => {
   return (
-    <div className='  w-full  flex justify-center'>
-      <div className='text-center '>
+    <div className='flex justify-center'>
+      <div>
+      <NavBar/>
       <SearchBar/>
       <Tabs/>
       <ResultGrid/>
-      {/* <LandingPage/> */}
       </div>
     </div>
   )

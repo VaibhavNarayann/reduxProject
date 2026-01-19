@@ -1,7 +1,6 @@
 import  { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setQuery } from '../redux/features/searchSlice'
-import { fetchPhotos } from '../server/mediaApi';
 
 export const SearchBar = () => {
   const [text, setText] = useState(''); 

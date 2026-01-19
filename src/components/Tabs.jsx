@@ -5,10 +5,10 @@ const Tabs = () => {
     const tabs = ['photos', 'videos']
     const dispatch = useDispatch(); 
     const activeTab = useSelector((state)=>state.search.activeTab); 
-
+    
     return (
         <div className=' '>
-          <div className=''>
+          <div className='text-center'>
                   {tabs.map(function (elem, idx) {
                 return (
                     <button
@@ -26,5 +26,4 @@ const Tabs = () => {
         </div>
     )
 }
-
 export default Tabs
