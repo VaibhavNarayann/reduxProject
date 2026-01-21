@@ -10,7 +10,6 @@ import { ResultCard } from './ResultCard';
 
    useEffect(function(){
         if(!query) return 
-
        const getData = async () =>  {
         try { 
             dispatch(setLoading()); 

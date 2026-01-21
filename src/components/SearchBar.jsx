@@ -1,11 +1,10 @@
 import  { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setQuery } from '../redux/features/searchSlice'
-
 export const SearchBar = () => {
   const [text, setText] = useState(''); 
   const dispatch = useDispatch();
-
+  
   const submitHandler = (e) => {
     e.preventDefault(); 
       dispatch(setQuery(text));
@@ -13,15 +12,15 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className='mt-10 flex justify-center w-full'>
+    <div className='mt-30 flex justify-center '>
         <div className='shadow-white-100'>
-          <div className=' min-w-3xl'>
+          <div className='lg:min-w-3xl md:min-w-2xl '>
            <form  className='p-2 text-xl  bg-[#0000005b] text-black rounded-2xl items-center text-center'
       onSubmit={(e)=> {
         submitHandler(e)
       }}>
         <input
-         className='outline-0 p-3 w-full text-2xl font-thin text-white'
+         className='outline-0 p-3 w-full md:text-3xl  font-thin text-white'
          value={text}
          onChange={(e)=> {
         setText(e.target.value); 

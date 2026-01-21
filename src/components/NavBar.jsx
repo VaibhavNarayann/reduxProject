@@ -1,26 +1,22 @@
 import React from 'react'
+import { navlinks } from '../constants';
 
-export const NavBar = () => {
+
+ const NavBar = () => {
   return (
-    <div className='p-4 py-6 bg-white rounded-full'>
-        {/* navbar */}
-        <div className='flex justify-between  '>
-            {/* left */}
-            <div>
-                logo
-            </div>
-
-            {/* right */}
-            <div className=''>
-                <div className='flex'>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                </div>
-            </div>
-           
-        </div>
-   
-    </div>
+        <header>
+            <nav className=''>
+                {/* <img src='' alt="logo" />  */} <h1>Search.bazzar</h1>
+                <ul className='hidden md:flex'>
+                    {navlinks.map(({label})=>(
+                        <li key={label}>
+                            <a href={label}>{label}</a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </header>
   )
 }
+
+export default NavBar; 
